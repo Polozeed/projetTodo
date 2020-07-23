@@ -43,7 +43,7 @@ async function signup(req, res) {
 }
 //----------------------// Fct Login //-----------------------------------------
 async function login(req, res) {
-
+        console.log(" je suis dans le login");
         const { password, email } = req.body;
         if (!email || !password) {
 

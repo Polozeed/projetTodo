@@ -4,10 +4,14 @@ var bodyParser = require('body-parser'); // Charge le middleware de gestion des 
 var urlencodedParser = bodyParser.urlencoded({ extended: false });
 
 var app = express();
+
+
 /* On utilise les sessions */
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
 app.use(session({secret: 'todotopsecret'}))
 
 
-    .listen(8080);
+/* S'il n'y a pas de todolist dans la session,
+on en crée une vide sous forme d'array avant la suite */
+    .use(function(req, res, next){
+        res.render('index.ejs');
+    })

@@ -5,21 +5,9 @@ const bodyParser = require("body-parser");
 
 //Connexion à la base de donnée
 mongoose
-    .connect("mongodb://localhost/user",{ useNewUrlParser: true,
-        useUnifiedTopology: true  })
+    .connect("mongodb://localhost/todo",{ useNewUrlParser: true,  useUnifiedTopology: true })
     .then(() => {
-        console.log("Connected to mongoDB User");
-    })
-    .catch((e) => {
-        console.log("Error while DB connecting");
-        console.log(e);
-    });
-
-mongoose
-    .connect("mongodb://localhost/todo",{ useNewUrlParser: true,
-        useUnifiedTopology: true  })
-    .then(() => {
-        console.log("Connected to mongoDB TODO");
+        console.log("Connected to mongoDB Todo");
     })
     .catch((e) => {
         console.log("Error while DB connecting");
@@ -54,11 +42,8 @@ app.use(function(req, res, next) {
 
 //Définition du routeur
 const router = express.Router();
-app.use("/user", router);
-require(__dirname + "/controller/userController")(router);
 app.use("/todo", router);
 require(__dirname + "/controller/toController")(router);
-app.use("/index", router);
 
 
 //Définition et mise en place du port d'écoute

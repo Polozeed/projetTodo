@@ -28,5 +28,4 @@ userSchema.methods = {
         return jwt.encode(this, config.secret);
     }
 };
-
 module.exports = mongoose.model("User", userSchema);
