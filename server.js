@@ -1,6 +1,10 @@
 //Définition des modules
+var Todo = require("../code/schema/schemaTodo");
+var cron = require('node-cron');
+var lib = require('../code/controller/todo/lib');
 const express = require("express");
 const mongoose = require("mongoose");
+
 const bodyParser = require("body-parser");
 
 //Connexion à la base de donnée
@@ -50,6 +54,18 @@ app.use(function(req, res, next) {
     );
     res.setHeader("Access-Control-Allow-Credentials", true);
     next();
+});
+
+// supprime les TODOS check a heure fix : 4HOO tous les jours
+cron.schedule("00 04 * * *", function() {
+    console.log("---------------------");
+    console.log("Running Cron Job");
+    try {
+        lib.deleteAllTodos();
+    } catch (e) {
+        console.log(e);
+    }
+
 });
 
 //Définition du routeur

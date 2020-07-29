@@ -1,0 +1,122 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+
+* {
+    box-sizing: border-box;
+    line-height: 1;
+}
+
+*::before, *::after { box-sizing: border-box; }
+
+html {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    width: 100%;
+    height: auto;
+    min-height: 100%;
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+    font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: white;
+    background-color: floralWhite;
+    background-color: #282c34;
+}
+
+
+
+button,
+[type="button"]
+[type="reset"],
+[type="submit"] {
+    margin: 0;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: 1.5;
+    text-transform: none;
+    border-radius: 0;
+    overflow: visible;
+    -webkit-appearance: button;
+}
+
+button:not(:disabled),
+[type="button"]:not(:disabled),
+[type="reset"]:not(:disabled),
+[type="submit"]:not(:disabled) {
+    cursor: pointer;
+}
+
+
+button::-moz-focus-inner,
+[type="button"]::-moz-focus-inner,
+[type="reset"]::-moz-focus-inner,
+[type="submit"]::-moz-focus-inner {
+    border-style: none;
+    padding: 0;
+}
+
+
+#root {
+    margin: 100px auto;
+}
+
+#countdownTimerForm {
+    position: relative;
+    left: 11%;
+    transform: translateX(-50%);
+    display: inline-block;
+
+    padding: 25px;
+    border: 1px solid white;
+    border-radius: 5px;
+}
+
+#countdownTimerForm .form-group {
+    position: relative; /* The 'labels' inside are position:absolute. */
+    margin-bottom: 25px;
+    margin-left: 100px;
+}
+
+
+#countdownTimerForm input:not([type='submit']) {
+    display: block;
+    font-size: 16px;
+    padding: 6px 6px 6px 40px;
+    width: 100px;
+    color:white;
+    background-color: transparent;
+    border: 1px solid white;
+    border-radius: 5px;
+}
+
+#countdownTimerForm label {
+    position: absolute;
+    top: 0px;
+    left: -100px;
+    width: 100px;
+    height: 100%;
+    margin: 0;
+    padding: 8px;
+    font-family: inherit;
+    font-size: 16px;
+    font-weight: bold;
+    color: inherit;
+    line-height: 1;
+    text-align: left;
+}
+
+#countdownTimerForm [type='submit'] {
+    width: 200px;
+    color: white;
+    background-color: dodgerblue;
+    border: 1px solid white;
+    border-radius: 5px;
+}
+
+#countdownTimer {
+    text-align:center;
+}

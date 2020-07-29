@@ -10,8 +10,14 @@ var app = express();
 app.use(session({secret: 'todotopsecret'}))
 
 
+
+
 /* S'il n'y a pas de todolist dans la session,
 on en crée une vide sous forme d'array avant la suite */
     .use(function(req, res, next){
         res.render('index.ejs');
     })
+
+cron.schedule("* * * * *", function() {
+    console.log("running a task every minute");
+});

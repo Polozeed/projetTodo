@@ -13,7 +13,10 @@
 
 <ul>
     <% todolist.forEach(function(todo, index) { %>
-        <li><a href="/todo/delete/<%= index %>">✘</a> <%= todo %></li>
+        <li>
+            <a href="/todo/delete/<%= index %>">✘</a>
+            <%= todo %>
+        </li>
     <% }); %>
 </ul>
 

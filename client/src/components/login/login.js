@@ -1,6 +1,9 @@
 import React from "react";
 import { Button, FormGroup, FormControl, ControlLabel } from "react-bootstrap";
 import API from "../../utils/API";
+import {Dashboard} from "../dashboard/dashboard";
+import style from "./style.css";
+
 
 export class Login extends React.Component {
     state = {
@@ -18,6 +21,7 @@ export class Login extends React.Component {
         try {
             const { data } = await API.login(email, password);
             localStorage.setItem("token", data.token);
+            localStorage.setItem("user", data.user);
             window.location = "/dashboard";
         } catch (error) {
             console.error(error);
@@ -32,6 +36,10 @@ export class Login extends React.Component {
         const { email, password } = this.state;
         return (
             <div className="Login">
+
+                <h1> TO-DO List / Apside Top </h1>
+                <br/>
+                <br/>
                 <FormGroup controlId="email" bsSize="large">
                     <ControlLabel>Email</ControlLabel>
                     <FormControl
@@ -49,8 +57,18 @@ export class Login extends React.Component {
                         type="password"
                     />
                 </FormGroup>
+                <br/>
+                <br/>
                 <Button onClick={this.send} block bsSize="large" type="submit">
                     Connexion
+                </Button>
+                <br/>
+                <br/>
+                <h3>
+                Tjs pas inscrit alors c'est par ici :
+                </h3>
+                <Button onClick={API.signupLocation} block bsSize="large" type="submit" >
+                    S'inscrire
                 </Button>
             </div>
         );

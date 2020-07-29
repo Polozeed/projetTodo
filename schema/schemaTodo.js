@@ -4,7 +4,7 @@ var todoSchema = mongoose.Schema(
     {
         id: {
             type: String,
-            required: true
+            required:false
         },
         todo: {
             type: String,
@@ -13,6 +13,10 @@ var todoSchema = mongoose.Schema(
         user: {
             type: String,
             required: true
+        },
+        check: {
+            type: Boolean,
+            required: false
         }
     },
 );

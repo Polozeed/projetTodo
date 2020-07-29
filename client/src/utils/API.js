@@ -26,5 +26,25 @@ export default {
     },
     logout: function() {
         localStorage.clear();
-    }
+    },
+
+    todo: function() {
+        window.location = "http://localhost:8800/todo/index";
+    },
+
+    signupLocation: function() {
+        window.location = "http://localhost:3000/signup";
+    },
+
+    allTodos: function() {
+        return axios.get(
+            `${burl}/todo/todos/martin`,
+            {
+                headers: headers
+            }
+        );
+    },
+
+
+
 };

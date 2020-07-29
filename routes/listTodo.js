@@ -49,6 +49,14 @@ on en crée une vide sous forme d'array avant la suite */
         res.redirect('/todo');
     })
 
+    /* On ajoute un élément à la todolist */
+    .put('/todo/:id/', urlencodedParser, function(req, res) {
+        if (req.body.newtodo != '') {
+            req.session.todolist.update(req.body.newtodo);
+        }
+        res.redirect('/todo');
+    })
+
     /* On redirige vers la todolist si la page demandée n'est pas trouvée */
     .use(function(req, res, next){
         res.redirect('/todo');

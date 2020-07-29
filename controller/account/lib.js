@@ -35,7 +35,8 @@ async function signup(req, res) {
         const userObject = await userData.save();
         return res.status(200).json({
             text: "Succès",
-            token: userObject.getToken()
+            token: userObject.getToken(),
+            user : req.body.email
         });
     } catch (error) {
         return res.status(500).json({error});
@@ -65,7 +66,8 @@ async function login(req, res) {
                 });
             return res.status(200).json({
                 token: findUser.getToken(),
-                text: "Authentification réussi"
+                text: "Authentification réussi",
+                user : req.body.email
             });
         } catch (error) {
             return res.status(500).json({
