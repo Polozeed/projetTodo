@@ -57,6 +57,8 @@ export class Todos extends Component {
     onChangeNewCheck  = (event) => {
         this.setState({ newCheck: event.target.checked});
     }
+
+
     handleSubmit = e => {
         e.preventDefault();
         const data = {
@@ -75,34 +77,26 @@ export class Todos extends Component {
         this.refreshPage();
     };
 
-
-
     render() {
         const { posts } = this.state;
         return (
-            <div>
-                <h1>Todo List</h1>
+            <div id="divTodos">
                 <ul class="list-group">
                     { posts.map(p => (
                         <il class="list-group-item" active key={p._id}>
-                            <a  onClick={e => todosAPI.deleteTodo(e, p.id)} href="" id="test"> ✘</a>
+                            <a onClick={e => todosAPI.deleteTodo(e, p.id)} href="" id="test"> ✘</a>
                             { p.todo }
-                            { "---------> " + p.check }
-                            <input type="checkbox"  onClick={ e => this.onChangeCheck(e ,p.id, p.check)}   href="" checked={ p.check}/>
+                            <input type="checkbox" id="checkBouton" onClick={ e => this.onChangeCheck(e ,p.id, p.check)}   href="" checked={ p.check}/>
                         </il >
                     )) }
                 </ul>
                 <br/>
                 <br/>
-                <br/>
-                <br/>
-                <form onSubmit={this.handleSubmit} >
-                    <p>
-                        <label className="newtodo">Ajouter TODO </label>
-                        <input type="text" value={this.state.todo} name="todo" onChange={ this.onChangeTodo} />
-                        <input type="checkbox" checked={this.state.newCheck} name="newCheck" onChange={ this.onChangeNewCheck}/>
-                        <input type="submit"/>
-                    </p>
+                <form id="formadd" onSubmit={this.handleSubmit} >
+                        <label   className="newtodo">Ajouter TODO </label>
+                        <input id="textadd" className="todoadd" type="text" value={this.state.todo} name="todo" onChange={ this.onChangeTodo} />
+                        <input id ="checkadd" className="todoadd" type="checkbox" checked={this.state.newCheck} name="newCheck" onChange={ this.onChangeNewCheck}/>
+                        <input id="boutonadd" type="submit"/>
                 </form>
             </div>
         );

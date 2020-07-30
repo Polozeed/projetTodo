@@ -1,6 +1,7 @@
 import React from "react";
 import { Button, FormGroup, FormControl, ControlLabel } from "react-bootstrap";
 import API from "../../utils/API";
+import "./styles.css";
 
 export class Signup extends React.Component {
     state = {
@@ -30,8 +31,10 @@ export class Signup extends React.Component {
         const { email, password, cpassword } = this.state;
         return (
             <div className="Login">
+                <img id="image" src="https://www.frenchtechbordeaux.com/wp-content/uploads/2019/01/Apside.png" width="150" height="50" alt=""/>
+
                 <FormGroup controlId="email" bsSize="large">
-                    <ControlLabel>Email</ControlLabel>
+                    <ControlLabel>Utilisateur</ControlLabel>
                     <FormControl
                         autoFocus
                         type="email"
@@ -40,7 +43,7 @@ export class Signup extends React.Component {
                     />
                 </FormGroup>
                 <FormGroup controlId="password" bsSize="large">
-                    <ControlLabel>Password</ControlLabel>
+                    <ControlLabel>Mot de passe</ControlLabel>
                     <FormControl
                         value={password}
                         onChange={this.handleChange}
@@ -48,14 +51,17 @@ export class Signup extends React.Component {
                     />
                 </FormGroup>
                 <FormGroup controlId="cpassword" bsSize="large">
-                    <ControlLabel>Confirm Password</ControlLabel>
+                    <ControlLabel>Confirmer Mot de passe</ControlLabel>
                     <FormControl
                         value={cpassword}
                         onChange={this.handleChange}
                         type="password"
                     />
                 </FormGroup>
-                <Button onClick={this.send} block bsSize="large" type="submit">
+                <br/>
+                <br/>
+
+                <Button id="inscription" onClick={this.send} block bsSize="large" type="submit">
                     Inscription
                 </Button>
             </div>

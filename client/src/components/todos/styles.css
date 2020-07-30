@@ -1,4 +1,5 @@
-.input:not([type='submit']) {
+.todoadd {
+
     display: block;
     font-size: 16px;
     padding: 6px 6px 6px 40px;
@@ -7,4 +8,57 @@
     background-color: transparent;
     border: 1px solid white;
     border-radius: 5px;
+}
+
+#divTodos {
+    display: inline-block;
+    position: absolute;
+    left: 6%;
+}
+
+#textadd {
+    display: inline;
+}
+
+#checkadd {
+    display: inline-block;
+}
+
+#boutonadd {
+    width: 200px;
+    color: white;
+    background-color: dodgerblue;
+    border: 1px solid white;
+    border-radius: 5px;
+}
+
+#checkBouton {
+    position: absolute;
+    right: 12%;
+}
+
+#formadd {
+    position: relative;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%);
+    display: inline-block;
+    padding: 25px;
+    border: 1px solid white;
+    border-radius: 5px;
+}
+
+.list-group-item {
+    position: relative;
+    display: block;
+    background-color: #282c34;
+    border: 1px solid white;
+
+
+
+}
+
+h1{
+    color: antiquewhite;
 }

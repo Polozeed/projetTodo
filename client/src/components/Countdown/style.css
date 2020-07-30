@@ -59,14 +59,10 @@ button::-moz-focus-inner,
     padding: 0;
 }
 
-
-#root {
-    margin: 100px auto;
-}
-
 #countdownTimerForm {
-    position: relative;
-    left: 11%;
+    position: absolute;
+    right: 4%;
+    top: 28%;
     transform: translateX(-50%);
     display: inline-block;
 
@@ -119,4 +115,10 @@ button::-moz-focus-inner,
 
 #countdownTimer {
     text-align:center;
+    font-size: 32px;
+    display: inline-block;
+    position: absolute;
+    top: 72%;
+    right: 18%;
+
 }

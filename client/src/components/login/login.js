@@ -36,7 +36,7 @@ export class Login extends React.Component {
         const { email, password } = this.state;
         return (
             <div className="Login">
-
+                <img id="image" src="https://www.frenchtechbordeaux.com/wp-content/uploads/2019/01/Apside.png" width="150" height="50" alt=""/>
                 <h1> TO-DO List / Apside Top </h1>
                 <br/>
                 <br/>
@@ -59,7 +59,7 @@ export class Login extends React.Component {
                 </FormGroup>
                 <br/>
                 <br/>
-                <Button onClick={this.send} block bsSize="large" type="submit">
+                <Button id="connexion" onClick={this.send} block bsSize="large" type="submit">
                     Connexion
                 </Button>
                 <br/>
@@ -67,7 +67,7 @@ export class Login extends React.Component {
                 <h3>
                 Tjs pas inscrit alors c'est par ici :
                 </h3>
-                <Button onClick={API.signupLocation} block bsSize="large" type="submit" >
+                <Button id="inscription" onClick={API.signupLocation} block bsSize="large" type="submit" >
                     S'inscrire
                 </Button>
             </div>

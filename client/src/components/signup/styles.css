@@ -1,0 +1,14 @@
+#inscription {
+    color: white;
+    background-color: darkblue;
+    border: 1px solid white;
+    border-radius: 5px;
+}
+
+#image {
+    display: inline-block;
+    width: 14%;
+    position: absolute;
+    left: 6%;
+    top: 7%;
+}
