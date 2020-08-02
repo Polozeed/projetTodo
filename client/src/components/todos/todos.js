@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { Component } from 'react';
 import {default as ReactDOM, render} from 'react-dom';
 import "./styles.css";
+
 import API from "../../utils/API";
 var uuid = require('uuid');
 
@@ -18,6 +19,7 @@ export class Todos extends Component {
             check : false,
             newCheck : false,
             posts : [],
+            s :"line-through"
         };
     }
 
@@ -48,12 +50,24 @@ export class Todos extends Component {
         if (check){
             axios.put(
                 `http://localhost:8800/todo/check/false/` +id  );
+            this.setState({s: 'none'})
         } else {
             axios.put(
                 `http://localhost:8800/todo/check/true/` +id  );
+            this.setState({s: 'line-through'})
         }
+        this.onChangeCSSStrike(check);
         this.refreshPage();
     }
+
+    onChangeCSSStrike(check) {
+        if (check){
+            return 'line-through';
+        } else {
+            return 'none';
+        }
+    }
+
     onChangeNewCheck  = (event) => {
         this.setState({ newCheck: event.target.checked});
     }
@@ -81,15 +95,20 @@ export class Todos extends Component {
         const { posts } = this.state;
         return (
             <div id="divTodos">
+                <div id ="divTest">
                 <ul class="list-group">
                     { posts.map(p => (
                         <il class="list-group-item" active key={p._id}>
-                            <a onClick={e => todosAPI.deleteTodo(e, p.id)} href="" id="test"> ✘</a>
-                            { p.todo }
+                            <a onClick={e => todosAPI.deleteTodo(e, p.id)}  href="" id="test">
+                                <img src="https://img.icons8.com/officexs/16/000000/delete-sign.png"/>
+
+                            </a>
+                            <span style= {{ 'text-decoration': this.onChangeCSSStrike(p.check)}}> { p.todo } </span>
                             <input type="checkbox" id="checkBouton" onClick={ e => this.onChangeCheck(e ,p.id, p.check)}   href="" checked={ p.check}/>
                         </il >
                     )) }
                 </ul>
+                </div>
                 <br/>
                 <br/>
                 <form id="formadd" onSubmit={this.handleSubmit} >
@@ -98,6 +117,10 @@ export class Todos extends Component {
                         <input id ="checkadd" className="todoadd" type="checkbox" checked={this.state.newCheck} name="newCheck" onChange={ this.onChangeNewCheck}/>
                         <input id="boutonadd" type="submit"/>
                 </form>
+
+
+
+
             </div>
         );
     }

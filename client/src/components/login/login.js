@@ -37,6 +37,7 @@ export class Login extends React.Component {
         return (
             <div className="Login">
                 <img id="image" src="https://www.frenchtechbordeaux.com/wp-content/uploads/2019/01/Apside.png" width="150" height="50" alt=""/>
+                <img id="image2" src="https://img.icons8.com/ios/50/000000/todo-list.png"/>
                 <h1> TO-DO List / Apside Top </h1>
                 <br/>
                 <br/>

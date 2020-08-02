@@ -5,6 +5,12 @@
     left: 6%;
     top: 7%;
 }
+#image2 {
+
+    position: absolute;
+    left: 32%;
+    top: 15%;
+}
 
 #connexion{
     color: white;
@@ -19,3 +25,5 @@
     border: 1px solid white;
     border-radius: 5px;
 }
+
+

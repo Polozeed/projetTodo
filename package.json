@@ -15,6 +15,7 @@
     "node-cron": "^2.0.3",
     "package.json": "^2.0.1",
     "password-hash": "^1.2.2",
+    "pretty-checkbox": "^3.0.3",
     "uuid": "^8.2.0"
   },
   "author": "Martin Courier",

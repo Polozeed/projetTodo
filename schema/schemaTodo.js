@@ -17,6 +17,10 @@ var todoSchema = mongoose.Schema(
         check: {
             type: Boolean,
             required: false
+        },
+        s: {
+            type: Boolean,
+            required: false
         }
     },
 );

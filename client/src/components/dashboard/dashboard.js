@@ -3,6 +3,7 @@ import { Button } from "react-bootstrap";
 import API from "../../utils/API";
 import {Todos} from "../todos/todos";
 import {All} from "../Countdown/countdown";
+import {Demo} from "../demo";
 
 
 export class Dashboard extends React.Component {
@@ -37,7 +38,9 @@ export class Dashboard extends React.Component {
                 </Todos>
             <All>
             </All>
+
             </div>
+
         );
     }
 }
