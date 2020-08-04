@@ -1,8 +1,10 @@
 import React from "react";
 import { Button, FormGroup, FormControl, ControlLabel } from "react-bootstrap";
 import API from "../../utils/API";
-import {Dashboard} from "../dashboard/dashboard";
-import style from "./style.css";
+import "./style.css";
+import image from "./login.png"
+import apsideLogo from "../../img/apside.jpeg"
+
 
 
 export class Login extends React.Component {
@@ -35,15 +37,22 @@ export class Login extends React.Component {
     render() {
         const { email, password } = this.state;
         return (
-            <div className="Login">
-                <img id="image" src="https://www.frenchtechbordeaux.com/wp-content/uploads/2019/01/Apside.png" width="150" height="50" alt=""/>
-                <img id="image2" src="https://img.icons8.com/ios/50/000000/todo-list.png"/>
-                <h1> TO-DO List / Apside Top </h1>
-                <br/>
-                <br/>
-                <FormGroup controlId="email" bsSize="large">
+
+            <div className="Login" id="allLogin">
+                <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'/>
+                <nav className="navbar">
+                        <h1 id ='title'>Focus</h1>
+                </nav>
+                <h1 id="productif" className="title">Aujourd'hui, Soyez productif !</h1>
+                <div >
+                    <img id="imageCo" src={image}  alt=""/>
+                </div>
+
+                <div id="divConnexion">
+
+                <FormGroup controlId="email" bsSize="large" >
                     <ControlLabel>Email</ControlLabel>
-                    <FormControl
+                    <FormControl className="inputText"
                         autoFocus
                         type="email"
                         value={email}
@@ -51,8 +60,8 @@ export class Login extends React.Component {
                     />
                 </FormGroup>
                 <FormGroup controlId="password" bsSize="large">
-                    <ControlLabel>Password</ControlLabel>
-                    <FormControl
+                    <ControlLabel>Mot de passe</ControlLabel>
+                    <FormControl className="inputText"
                         value={password}
                         onChange={this.handleChange}
                         type="password"
@@ -65,12 +74,22 @@ export class Login extends React.Component {
                 </Button>
                 <br/>
                 <br/>
-                <h3>
-                Tjs pas inscrit alors c'est par ici :
-                </h3>
-                <Button id="inscription" onClick={API.signupLocation} block bsSize="large" type="submit" >
-                    S'inscrire
-                </Button>
+                    <h3>
+                        <a className="title" href="http://localhost:3000/signup">Pas encore inscrit ?</a>
+                    </h3>
+                </div>
+
+                <br/>
+                <br/>
+
+                <footer class="page-footer font-small blue">
+                    <div class="footer-copyright text-center py-3">© 2020 Copyright:
+                        <a id="lien" href="https://apside.com/"> Apside TOP</a>
+                        <img id="logoApside" src={apsideLogo}  alt=""/>
+                    </div>
+                </footer>
+
+
             </div>
         );
     }

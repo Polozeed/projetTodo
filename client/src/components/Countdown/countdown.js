@@ -67,7 +67,6 @@ export class CountdownTimer extends React.Component {
     constructor(props) {
         super(props);
     }
-
     render() {
         return (
             <h2 id="countdownTimer" style={{fontSize: 32}}>{this.props.hours}:{this.props.minutes}:{this.props.seconds}</h2>
@@ -79,20 +78,15 @@ export class CountdownTimer extends React.Component {
 export class All extends React.Component {
     constructor(props) {
         super(props);
-
         this.state = {
             hours:   '00', //It doesn't like 00 as a number - ???
             minutes: '00',
             seconds: '00'
         };
-
         this.updateTimer = '';
-
         this.handleInit           = this.handleInit.bind(this);
         this.updateCountdownTimer = this.updateCountdownTimer.bind(this);
     };
-
-
 
     updateCountdownTimer = (countDownDate) => {
         console.log('updateCountdownTimer() called.');
@@ -116,14 +110,12 @@ export class All extends React.Component {
                 if (seconds < 10) { seconds = '0' + seconds; }
                 document.getElementById("countdownTimer").innerHTML =  hours + ":" + minutes + ":" + seconds;
             });
-
             if (timeRemaining < 0) {
                 clearInterval(this.updateTimer);
                 document.getElementById("countdownTimer").innerHTML = "FIN";
             }
         }, 1000);
     };
-
 
     handleInit = (hours, minutes, seconds) => {
         console.log('handleInit() called.');
@@ -132,15 +124,12 @@ export class All extends React.Component {
             document.getElementById("countdownTimer").innerHTML = "Renseigner les champs svp";
             return;
         }
-
         let countDownDate = new Date();
         countDownDate.setHours(countDownDate.getHours()     + hours);
         countDownDate.setMinutes(countDownDate.getMinutes() + minutes);
         countDownDate.setSeconds(countDownDate.getSeconds() + seconds);
-
         this.updateCountdownTimer(countDownDate);
     };
-
 
     render() {
         const { hours, minutes, seconds } = this.state;

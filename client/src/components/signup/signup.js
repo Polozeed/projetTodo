@@ -2,6 +2,8 @@ import React from "react";
 import { Button, FormGroup, FormControl, ControlLabel } from "react-bootstrap";
 import API from "../../utils/API";
 import "./styles.css";
+import apsideLogo from "../../img/apside.jpeg";
+import image from "../signup/signup.png";
 
 export class Signup extends React.Component {
     state = {
@@ -10,6 +12,7 @@ export class Signup extends React.Component {
         cpassword: ""
     };
     send = async () => {
+        console.log("je suis ici ");
         const { email, password, cpassword } = this.state;
         if (!email || email.length === 0) return;
         if (!password || password.length === 0 || password !== cpassword) return;
@@ -31,39 +34,58 @@ export class Signup extends React.Component {
         const { email, password, cpassword } = this.state;
         return (
             <div className="Login">
-                <img id="image" src="https://www.frenchtechbordeaux.com/wp-content/uploads/2019/01/Apside.png" width="150" height="50" alt=""/>
+                <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'/>
+                <nav className="navbar">
+                    <h1 id ='title'>Focus</h1>
+                </nav>
 
+                <h1 id="productif" className="title">Aujourd'hui, Soyez productif !</h1>
+                <div >
+                    <img id="imageCo" src={image}  alt=""/>
+                </div>
+
+
+                <div id="divSignup">
                 <FormGroup controlId="email" bsSize="large">
                     <ControlLabel>Utilisateur</ControlLabel>
-                    <FormControl
+                    <FormControl className="inputText"
                         autoFocus
                         type="email"
                         value={email}
                         onChange={this.handleChange}
                     />
                 </FormGroup>
+
                 <FormGroup controlId="password" bsSize="large">
                     <ControlLabel>Mot de passe</ControlLabel>
-                    <FormControl
+                    <FormControl className="inputText"
                         value={password}
                         onChange={this.handleChange}
                         type="password"
                     />
                 </FormGroup>
+
                 <FormGroup controlId="cpassword" bsSize="large">
                     <ControlLabel>Confirmer Mot de passe</ControlLabel>
-                    <FormControl
+                    <FormControl className="inputText"
                         value={cpassword}
                         onChange={this.handleChange}
                         type="password"
                     />
                 </FormGroup>
                 <br/>
-                <br/>
 
                 <Button id="inscription" onClick={this.send} block bsSize="large" type="submit">
                     Inscription
                 </Button>
+                </div>
+
+                <footer className="page-footer font-small blue">
+                    <div className="footer-copyright text-center py-3">© 2020 Copyright:
+                        <a id="lien" href="https://apside.com/"> Apside TOP</a>
+                        <img id="logoApside" src={apsideLogo} alt=""/>
+                    </div>
+                </footer>
             </div>
         );
     }

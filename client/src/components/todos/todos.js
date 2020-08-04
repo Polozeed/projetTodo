@@ -7,7 +7,6 @@ import API from "../../utils/API";
 var uuid = require('uuid');
 
 
-
 export class Todos extends Component {
     constructor() {
         super();
@@ -101,7 +100,6 @@ export class Todos extends Component {
                         <il class="list-group-item" active key={p._id}>
                             <a onClick={e => todosAPI.deleteTodo(e, p.id)}  href="" id="test">
                                 <img src="https://img.icons8.com/officexs/16/000000/delete-sign.png"/>
-
                             </a>
                             <span style= {{ 'text-decoration': this.onChangeCSSStrike(p.check)}}> { p.todo } </span>
                             <input type="checkbox" id="checkBouton" onClick={ e => this.onChangeCheck(e ,p.id, p.check)}   href="" checked={ p.check}/>
@@ -117,10 +115,10 @@ export class Todos extends Component {
                         <input id ="checkadd" className="todoadd" type="checkbox" checked={this.state.newCheck} name="newCheck" onChange={ this.onChangeNewCheck}/>
                         <input id="boutonadd" type="submit"/>
                 </form>
-
-
-
-
+                    <br/>
+                <br/>
+                <br/>
+                <br/>
             </div>
         );
     }

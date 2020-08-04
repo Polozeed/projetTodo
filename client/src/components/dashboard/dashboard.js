@@ -3,7 +3,9 @@ import { Button } from "react-bootstrap";
 import API from "../../utils/API";
 import {Todos} from "../todos/todos";
 import {All} from "../Countdown/countdown";
-import {Demo} from "../demo";
+import style from "./style.css"
+import apsideLogo from "../../img/apside.jpeg";
+
 
 
 export class Dashboard extends React.Component {
@@ -13,31 +15,29 @@ export class Dashboard extends React.Component {
     };
     render() {
         return (
-            <div className="Dashboard">
-                <nav className="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+            <div className="Dashboard" id="dash">
+                <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'/>
+                <nav className="navbar">
                     <div className="container">
-                        <a className="navbar-brand" href="#">
-                            <img src="https://www.frenchtechbordeaux.com/wp-content/uploads/2019/01/Apside.png" width="150" height="50" alt=""/>
-                        </a>
-                        <h1 id ='test'>Todo List </h1>
-                        <button className="navbar-toggler" type="button" data-toggle="collapse"
-                                data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
-                                aria-label="Toggle navigation">
-                            <span className="navbar-toggler-icon"></span>
-                        </button>
-                        <div className="collapse navbar-collapse" id="navbarResponsive">
-                            <ul className="navbar-nav ml-auto">
-                            </ul>
-                            <button onClick={this.disconnect}  type="submit" className="btn btn-danger">Deconnexion</button>
+                        <h1 id ='title'>FOCUS</h1>
+                        <div id ="logOut">
+                        <img  src="https://img.icons8.com/windows/32/000000/exit.png" onClick={this.disconnect}/>
                         </div>
                     </div>
                 </nav>
-                <br/>
-                <br/>
+
                 <Todos>
                 </Todos>
+
             <All>
             </All>
+
+                <footer className="page-footer font-small blue">
+                    <div className="footer-copyright text-center py-3">© 2020 Copyright:
+                        <a id="lien" href="https://apside.com/"> Apside TOP</a>
+                        <img id="logoApside" src={apsideLogo} alt=""/>
+                    </div>
+                </footer>
 
             </div>
 

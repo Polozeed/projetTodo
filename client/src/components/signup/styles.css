@@ -1,8 +1,38 @@
+#allLogin {
+    font-family: 'Poppins';
+    width: 100%;
+    max-width: none;
+
+}
+
+#divSignup{
+    position: absolute;
+    margin-left: 10%;
+    margin-right: 40%;
+    margin-top: 10%;
+}
+
+#imageCo {
+    width: 540px;
+    position: absolute;
+    top: 18%;
+}
+
+#productif {
+    font-size: 300%;
+}
+
+.inputText {
+    border: 2px solid #FFF9EC;
+    background-color: #FFF9EC;
+    border-bottom: 2px solid #309397;
+}
+
 #inscription {
-    color: white;
-    background-color: darkblue;
+    color: #FFF9EC;
+    background-color: #309397;
     border: 1px solid white;
-    border-radius: 5px;
+    border-radius: 35px;;
 }
 
 #image {
@@ -11,4 +41,18 @@
     position: absolute;
     left: 6%;
     top: 7%;
+}
+
+#logoApside {
+    width: 13%;
+    position: relative;
+    left: 20%;
+}
+#lien {
+    color: #309397 ;
+}
+footer{
+    position: absolute;
+    top: 88%;
+    left: 50%;
 }

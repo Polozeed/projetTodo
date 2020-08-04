@@ -1,12 +1,21 @@
-body
-{
-    background:#e6e6ff;
-    font-family: 'Encode Sans', sans-serif;
+#dash {
+    font-family: 'Poppins';
+    width: 100%;
+    max-width: none;
+
 }
 
-#h1{
-    color: red;
+#title {
+    color: black;
+    position: absolute;
+    left: 10%;
 }
+
+#logOut {
+    position: relative;
+    left: 45%;
+}
+
 
 .btn btn-danger{
     float: left;
@@ -63,11 +72,19 @@ body
     background-color: #fa6a48;
     line-height: 17px;
 }
-#button-link a
-{
-    color:#f2f2f2;
+
+
+#logoApside {
+    width: 13%;
+    position: relative;
+    left: 20%;
+}
+#lien {
+    color: #309397 ;
+}
+footer{
+    position: absolute;
+    top: 88%;
+    left: 50%;
 }
 
-#test43{
-    float: right;
-}
