@@ -21,10 +21,11 @@ body {
     margin: 0;
     padding: 0;
     font-size: 16px;
-    font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+
     color: black;
     background-color: #FFF9EC;
 }
+
 
 
 
@@ -66,8 +67,7 @@ button::-moz-focus-inner,
     display: inline-block;
 
     padding: 25px;
-    border: 1px solid white;
-    border-radius: 5px;
+
 }
 
 #countdownTimerForm .form-group {
@@ -82,10 +82,9 @@ button::-moz-focus-inner,
     font-size: 16px;
     padding: 6px 6px 6px 40px;
     width: 100px;
-    color:white;
-    background-color: transparent;
-    border: 1px solid white;
-    border-radius: 5px;
+    border: 2px solid #FFF9EC;
+    background-color: #FFF9EC;
+    border-bottom: 2px solid #309397;
 }
 
 #countdownTimerForm label {
@@ -106,10 +105,10 @@ button::-moz-focus-inner,
 
 #countdownTimerForm [type='submit'] {
     width: 200px;
-    color: white;
-    background-color: dodgerblue;
+    color: #FFF9EC;
+    background-color: #309397;
     border: 1px solid white;
-    border-radius: 5px;
+    border-radius: 35px;
 }
 
 #countdownTimer {
@@ -119,5 +118,12 @@ button::-moz-focus-inner,
     position: absolute;
     top: 72%;
     right: 18%;
+}
 
+#imageCountdown {
+    display: none;
+    right: 9%;
+    width: 360px;
+    position: absolute;
+    top: 23%;
 }

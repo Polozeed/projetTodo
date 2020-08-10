@@ -4,9 +4,7 @@ import API from "../../utils/API";
 import {Todos} from "../todos/todos";
 import {All} from "../Countdown/countdown";
 import style from "./style.css"
-import apsideLogo from "../../img/apside.jpeg";
-
-
+import apsideLogo from "../../img/logo-apside.png";
 
 export class Dashboard extends React.Component {
     disconnect = () => {
@@ -25,22 +23,21 @@ export class Dashboard extends React.Component {
                         </div>
                     </div>
                 </nav>
+                <div id="cercle">
 
+                </div>
                 <Todos>
                 </Todos>
 
             <All>
             </All>
-
                 <footer className="page-footer font-small blue">
                     <div className="footer-copyright text-center py-3">© 2020 Copyright:
                         <a id="lien" href="https://apside.com/"> Apside TOP</a>
                         <img id="logoApside" src={apsideLogo} alt=""/>
                     </div>
                 </footer>
-
             </div>
-
         );
     }
 }

@@ -1,27 +1,23 @@
 #allLogin {
-    font-family: 'Poppins';
+    font-family: 'Poppins', serif;
     width: 100%;
     max-width: none;
 
 }
-
 #divSignup{
     position: absolute;
     margin-left: 10%;
     margin-right: 40%;
     margin-top: 10%;
 }
-
 #imageCo {
-    width: 540px;
+    width: 480px;
     position: absolute;
-    top: 18%;
+    top: 23%;
 }
-
 #productif {
     font-size: 300%;
 }
-
 .inputText {
     border: 2px solid #FFF9EC;
     background-color: #FFF9EC;

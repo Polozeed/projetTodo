@@ -2,8 +2,8 @@ import React from "react";
 import { Button, FormGroup, FormControl, ControlLabel } from "react-bootstrap";
 import API from "../../utils/API";
 import "./style.css";
-import image from "./login.png"
-import apsideLogo from "../../img/apside.jpeg"
+import image from "../../img/login.svg"
+import apsideLogo from "../../img/logo-apside.png"
 
 
 
@@ -47,9 +47,7 @@ export class Login extends React.Component {
                 <div >
                     <img id="imageCo" src={image}  alt=""/>
                 </div>
-
                 <div id="divConnexion">
-
                 <FormGroup controlId="email" bsSize="large" >
                     <ControlLabel>Email</ControlLabel>
                     <FormControl className="inputText"
@@ -78,18 +76,14 @@ export class Login extends React.Component {
                         <a className="title" href="http://localhost:3000/signup">Pas encore inscrit ?</a>
                     </h3>
                 </div>
-
                 <br/>
                 <br/>
-
                 <footer class="page-footer font-small blue">
                     <div class="footer-copyright text-center py-3">© 2020 Copyright:
                         <a id="lien" href="https://apside.com/"> Apside TOP</a>
                         <img id="logoApside" src={apsideLogo}  alt=""/>
                     </div>
                 </footer>
-
-
             </div>
         );
     }

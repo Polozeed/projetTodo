@@ -1,12 +1,12 @@
 import {default as ReactDOM, render} from 'react-dom';
 import React from "react";
 import "./style.css";
+import image from "../../img/time.svg"
 
 
 class Form extends React.Component {
     constructor(props) {
         super(props);
-
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
@@ -37,27 +37,26 @@ class Form extends React.Component {
 
     render() {
         return (
+            <body>
+            <div >
+                <img id="imageCountdown" src={image}  alt=""/>
+            </div>
             <form id="countdownTimerForm" onSubmit={this.handleSubmit}>
-
                 <div className="form-group">
-                    <label>Heures:</label>
+                    <label>Heures</label>
                     <input type="number" min="0" name="hours"></input>
                 </div>
-
                 <div className="form-group">
-                    <label>Minutes:</label>
+                    <label>Minutes</label>
                     <input type="number" min="0" name="minutes"></input>
                 </div>
-
                 <div className="form-group">
-                    <label>Secondes:</label>
+                    <label>Secondes</label>
                     <input type="number" min="0" name="seconds"></input>
                 </div>
-
-                <input type="submit" value="Lancer le compteur" />
-
+                <input type="submit" value="Lancer" />
             </form>
-
+            </body>
         );
     }
 }
@@ -68,6 +67,7 @@ export class CountdownTimer extends React.Component {
         super(props);
     }
     render() {
+
         return (
             <h2 id="countdownTimer" style={{fontSize: 32}}>{this.props.hours}:{this.props.minutes}:{this.props.seconds}</h2>
         );
@@ -88,6 +88,8 @@ export class All extends React.Component {
         this.updateCountdownTimer = this.updateCountdownTimer.bind(this);
     };
 
+
+
     updateCountdownTimer = (countDownDate) => {
         console.log('updateCountdownTimer() called.');
         const self = this;
@@ -98,32 +100,39 @@ export class All extends React.Component {
             const hours         = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             const minutes       = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
             const seconds       = Math.floor((timeRemaining % (1000 * 60)) / 1000);
-
-
             self.setState({hours: hours, minutes: minutes, seconds: seconds}, () => {
                 let hours   = self.state.hours;
                 let minutes = self.state.minutes;
                 let seconds = self.state.seconds;
-
                 if (hours < 10)   { hours   = '0' + hours;   }
                 if (minutes < 10) { minutes = '0' + minutes; }
                 if (seconds < 10) { seconds = '0' + seconds; }
                 document.getElementById("countdownTimer").innerHTML =  hours + ":" + minutes + ":" + seconds;
+
+                if (hours + minutes + seconds > 0) {
+                    document.getElementById("countdownTimerForm").style.display = "none";
+                    document.getElementById("imageCountdown").style.display = "block";
+                }
             });
             if (timeRemaining < 0) {
                 clearInterval(this.updateTimer);
-                document.getElementById("countdownTimer").innerHTML = "FIN";
+                document.getElementById("countdownTimer").innerHTML = "00:00:00";
+                document.getElementById("countdownTimerForm").style.display = "block";
+                document.getElementById("imageCountdown").style.display = "none";
+
+
             }
         }, 1000);
     };
 
     handleInit = (hours, minutes, seconds) => {
         console.log('handleInit() called.');
-
         if (hours + minutes + seconds === 0) {
-            document.getElementById("countdownTimer").innerHTML = "Renseigner les champs svp";
+            document.getElementById("countdownTimer").innerHTML = " ";
             return;
         }
+
+
         let countDownDate = new Date();
         countDownDate.setHours(countDownDate.getHours()     + hours);
         countDownDate.setMinutes(countDownDate.getMinutes() + minutes);
@@ -136,11 +145,9 @@ export class All extends React.Component {
         return (
             <React.Fragment>
                 <Form hours={hours} minutes={minutes} seconds={seconds} onInit={this.handleInit} updateTimer={this.updateTimer}/>
-
                 <CountdownTimer hours={hours} minutes={minutes} seconds={seconds} />
             </React.Fragment>
         );
     }
 }
-
 ReactDOM.render(<All />, document.getElementById('root'));

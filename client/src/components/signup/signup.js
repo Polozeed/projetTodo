@@ -2,8 +2,8 @@ import React from "react";
 import { Button, FormGroup, FormControl, ControlLabel } from "react-bootstrap";
 import API from "../../utils/API";
 import "./styles.css";
-import apsideLogo from "../../img/apside.jpeg";
-import image from "../signup/signup.png";
+import apsideLogo from "../../img/logo-apside.png";
+import image from "../../img/signup.svg";
 
 export class Signup extends React.Component {
     state = {

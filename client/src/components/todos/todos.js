@@ -2,8 +2,10 @@ import axios from 'axios';
 import React, { Component } from 'react';
 import {default as ReactDOM, render} from 'react-dom';
 import "./styles.css";
+import apsideLogo from "../../img/logo-apside.png"
 
 import API from "../../utils/API";
+import image from "../../img/plus.png";
 var uuid = require('uuid');
 
 
@@ -95,14 +97,23 @@ export class Todos extends Component {
         return (
             <div id="divTodos">
                 <div id ="divTest">
+                    <h2>Mes Taches</h2>
                 <ul class="list-group">
                     { posts.map(p => (
                         <il class="list-group-item" active key={p._id}>
+                            <label className="custom-checkbox">
+                                <input className="testtaille" type="checkbox" onClick={ e => this.onChangeCheck(e ,p.id, p.check)}
+                                       href="" checked={ p.check}/>
+                                <i className="fa  fa-circle-o unchecked"></i>
+                                <i className="fa fa-check-circle-o checked"></i>
+                            </label>
+
                             <a onClick={e => todosAPI.deleteTodo(e, p.id)}  href="" id="test">
                                 <img src="https://img.icons8.com/officexs/16/000000/delete-sign.png"/>
                             </a>
                             <span style= {{ 'text-decoration': this.onChangeCSSStrike(p.check)}}> { p.todo } </span>
-                            <input type="checkbox" id="checkBouton" onClick={ e => this.onChangeCheck(e ,p.id, p.check)}   href="" checked={ p.check}/>
+
+
                         </il >
                     )) }
                 </ul>
@@ -110,15 +121,11 @@ export class Todos extends Component {
                 <br/>
                 <br/>
                 <form id="formadd" onSubmit={this.handleSubmit} >
-                        <label   className="newtodo">Ajouter TODO </label>
-                        <input id="textadd" className="todoadd" type="text" value={this.state.todo} name="todo" onChange={ this.onChangeTodo} />
-                        <input id ="checkadd" className="todoadd" type="checkbox" checked={this.state.newCheck} name="newCheck" onChange={ this.onChangeNewCheck}/>
+                    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+                    <img id="imagePlus" src={image}  alt=""/>
+                        <input id="textadd" className="todoadd" type="text" value={this.state.todo} name="todo" onChange={ this.onChangeTodo} placeholder="Ajouter une tache"/>
                         <input id="boutonadd" type="submit"/>
                 </form>
-                    <br/>
-                <br/>
-                <br/>
-                <br/>
             </div>
         );
     }

@@ -79,10 +79,6 @@ E
 client/yarn-error.log,f\8\f89bb0340a02ee51895ce03672423120936fe7c3
 @
 client/yarn.lock,1\2\129d2652724077646f57bb16e956795891e09cf9
-U
-%client/src/components/todos/Client.js,0\7\07b918ff929a1c4da737b10330bf770a52ac30fc
-Y
-)client/src/components/todos/ClientForm.js,d\5\d5c77532b5df8e43053e2ca40647de5946e1dedc
 V
 &client/src/components/todos/styles.css,1\2\121ac2e5cd7e742a91560a03ff9f76bfd7cab448
 H
