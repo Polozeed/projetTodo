@@ -12,28 +12,22 @@ class Form extends React.Component {
 
     handleSubmit = (e) => {
         e.preventDefault();
-        clearInterval(this.props.updateTimer); //This will do nothing on the first submit, but it doesn't seem detrimental
-
+        clearInterval(this.props.updateTimer);
         const elements = e.target.elements;
         let hours      = elements.hours.value;
         let minutes    = elements.minutes.value;
         let seconds    = elements.seconds.value;
-
         if (hours === '')   { hours   = 0; }
         if (minutes === '') { minutes = 0; }
         if (seconds === '') { seconds = 0; }
-
         hours   = parseInt(hours, 10);
         minutes = parseInt(minutes, 10);
         seconds = parseInt(seconds, 10);
-
         this.props.onInit(hours, minutes, seconds);
-
         elements.hours.value   = '';
         elements.minutes.value = '';
         elements.seconds.value = '';
     }
-
 
     render() {
         return (
@@ -67,19 +61,17 @@ export class CountdownTimer extends React.Component {
         super(props);
     }
     render() {
-
         return (
             <h2 id="countdownTimer" style={{fontSize: 32}}>{this.props.hours}:{this.props.minutes}:{this.props.seconds}</h2>
         );
     }
 }
 
-
 export class All extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            hours:   '00', //It doesn't like 00 as a number - ???
+            hours:   '00',
             minutes: '00',
             seconds: '00'
         };
@@ -119,8 +111,6 @@ export class All extends React.Component {
                 document.getElementById("countdownTimer").innerHTML = "00:00:00";
                 document.getElementById("countdownTimerForm").style.display = "block";
                 document.getElementById("imageCountdown").style.display = "none";
-
-
             }
         }, 1000);
     };
@@ -131,8 +121,6 @@ export class All extends React.Component {
             document.getElementById("countdownTimer").innerHTML = " ";
             return;
         }
-
-
         let countDownDate = new Date();
         countDownDate.setHours(countDownDate.getHours()     + hours);
         countDownDate.setMinutes(countDownDate.getMinutes() + minutes);

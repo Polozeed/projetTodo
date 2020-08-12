@@ -11,7 +11,12 @@
     border: none;
     width: 200%;
     position: relative;
-    right: 45%;
+
+}
+
+#titleTaches {
+    margin-left: -40%;
+    COLOR: #E46472;
 }
 
 #textadd {
@@ -39,19 +44,20 @@
 }
 
 #formadd {
-    position: absolute;
-    margin-left: 10%;
-    margin-top: 10%;
+    position: relative;
+    margin-top: 3%;
+    margin-left: -20%;
     display: block;
 }
 .list-group{
     justify-content: space-between;
+    text-align: left;
 }
 
 .list-group-item {
     position: relative;
     display: block;
-    background-color:  #F9BE7C;
+    background-color:  transparent;
     border: none;
 
 }

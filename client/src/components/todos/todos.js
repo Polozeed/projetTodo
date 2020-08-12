@@ -3,9 +3,9 @@ import React, { Component } from 'react';
 import {default as ReactDOM, render} from 'react-dom';
 import "./styles.css";
 import apsideLogo from "../../img/logo-apside.png"
-
 import API from "../../utils/API";
 import image from "../../img/plus.png";
+import {All} from "../Countdown/countdown";
 var uuid = require('uuid');
 
 
@@ -22,10 +22,20 @@ export class Todos extends Component {
             posts : [],
             s :"line-through"
         };
+        this.forceUpdateHandler = this.forceUpdateHandler.bind(this);
     }
 
+    forceUpdateHandler(){
+        this.forceUpdate();
+    };
+
     refreshPage() {
-        window.location.reload(false);
+        this.componentWillMount();
+    }
+
+    delete(e,id){
+        todosAPI.deleteTodo(e,id);
+        this.refreshPage();
     }
 
     componentWillMount() {
@@ -92,12 +102,13 @@ export class Todos extends Component {
         this.refreshPage();
     };
 
+
     render() {
         const { posts } = this.state;
         return (
             <div id="divTodos">
                 <div id ="divTest">
-                    <h2>Mes Taches</h2>
+                    <h2 id="titleTaches">Mes Taches</h2>
                 <ul class="list-group">
                     { posts.map(p => (
                         <il class="list-group-item" active key={p._id}>
@@ -107,19 +118,21 @@ export class Todos extends Component {
                                 <i className="fa  fa-circle-o unchecked"></i>
                                 <i className="fa fa-check-circle-o checked"></i>
                             </label>
-
+                            {/*
                             <a onClick={e => todosAPI.deleteTodo(e, p.id)}  href="" id="test">
                                 <img src="https://img.icons8.com/officexs/16/000000/delete-sign.png"/>
                             </a>
+                            */}
+                            <span onDoubleClick={ e => this.delete(e, p.id) }> { p.todo } </span>
+                            {/*
+                            Fonction qui permet de barrer le todo lorsque celui ci est validé
                             <span style= {{ 'text-decoration': this.onChangeCSSStrike(p.check)}}> { p.todo } </span>
-
-
+                               */}
                         </il >
                     )) }
                 </ul>
                 </div>
-                <br/>
-                <br/>
+
                 <form id="formadd" onSubmit={this.handleSubmit} >
                     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
                     <img id="imagePlus" src={image}  alt=""/>
@@ -145,13 +158,16 @@ todosAPI = {
     },
 
     deleteTodo : function(e, _id) {
-        axios.get('http://localhost:8800/todo/delete/'+_id, {
-            headers: {
-                'Content-Type': 'application/json'
-            }})
-            .catch(err => {
-                console.log(err);
+        if (window.confirm('Etes vous sur de vouloir supprimer cet item?')) {
+            axios.get('http://localhost:8800/todo/delete/' + _id, {
+                headers: {
+                    'Content-Type': 'application/json'
+                }
             })
+                .catch(err => {
+                    console.log(err);
+                });
+        }
     }
 };
 

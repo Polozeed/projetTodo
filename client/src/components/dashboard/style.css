@@ -2,7 +2,6 @@
     font-family: 'Poppins';
     width: 100%;
     max-width: none;
-
 }
 
 #cercle {
@@ -10,8 +9,9 @@
     border-radius: 800px;
     background: #F9BE7C;
     position: absolute;
-    width: 1578px;
+    width: 1478px;
     height: 1280px;
+    max-height: 788px;
     left: -843px;
     top: -169px;
 }
@@ -83,9 +83,10 @@
 #lien {
     color: #309397 ;
 }
-footer{
+
+#footer{
     position: absolute;
-    top: 93%;
+    top: 92%;
     left: 50%;
 }
 

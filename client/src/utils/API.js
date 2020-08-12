@@ -5,12 +5,13 @@ const headers = {
 const burl = "http://localhost:8800";
 
 export default {
-    login: function(email, password) {
+    login: function(email, password,text) {
         return axios.post(
             `${burl}/user/login`,
             {
                 email,
-                password
+                password,
+                text
             },
             {
                 headers: headers
@@ -35,16 +36,4 @@ export default {
     signupLocation: function() {
         window.location = "http://localhost:3000/signup";
     },
-
-    allTodos: function() {
-        return axios.get(
-            `${burl}/todo/todos/martin`,
-            {
-                headers: headers
-            }
-        );
-    },
-
-
-
 };

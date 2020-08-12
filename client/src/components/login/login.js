@@ -5,15 +5,14 @@ import "./style.css";
 import image from "../../img/login.svg"
 import apsideLogo from "../../img/logo-apside.png"
 
-
-
 export class Login extends React.Component {
     state = {
         email: "",
-        password: ""
+        password: "",
+        text:" ",
     };
     send = async () => {
-        const { email, password } = this.state;
+        const { email, password, text } = this.state;
         if (!email || email.length === 0) {
             return;
         }
@@ -22,10 +21,15 @@ export class Login extends React.Component {
         }
         try {
             const { data } = await API.login(email, password);
+            const rep = data.text;
+            console.log(rep);
             localStorage.setItem("token", data.token);
             localStorage.setItem("user", data.user);
+
             window.location = "/dashboard";
         } catch (error) {
+            console.log(error.response.data.text);
+            this.setState({ text: error.response.data.text});
             console.error(error);
         }
     };
@@ -71,6 +75,7 @@ export class Login extends React.Component {
                     Connexion
                 </Button>
                 <br/>
+                    <span id="spanErrorCo"> { this.state.text } </span>
                 <br/>
                     <h3>
                         <a className="title" href="http://localhost:3000/signup">Pas encore inscrit ?</a>

@@ -24,14 +24,12 @@ export class Dashboard extends React.Component {
                     </div>
                 </nav>
                 <div id="cercle">
-
                 </div>
                 <Todos>
                 </Todos>
-
             <All>
             </All>
-                <footer className="page-footer font-small blue">
+                <footer id="footer" className="page-footer font-small blue">
                     <div className="footer-copyright text-center py-3">© 2020 Copyright:
                         <a id="lien" href="https://apside.com/"> Apside TOP</a>
                         <img id="logoApside" src={apsideLogo} alt=""/>
