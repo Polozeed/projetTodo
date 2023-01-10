@@ -3,11 +3,11 @@
   "version": "0.1.0",
   "dependencies": {
     "body-parser": "~1.10.1",
-    "cookie-session": "~1.1.0",
+    "cookie-session": "~1.4.0",
     "create-react-app": "^3.4.1",
     "cron": "^1.8.2",
     "ejs": "~2.1.4",
-    "express": "^4.11.2",
+    "express": "^4.18.2",
     "fs": "0.0.1-security",
     "jwt-simple": "^0.5.1",
     "mongodb": "^3.0.1",
